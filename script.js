@@ -1,5 +1,5 @@
 /* ==========================================================================
-   NEXO · Estúdio Digital — interações e animações
+   NEXO · Estúdio Digital: interações e animações
    Vanilla JS, sem dependências.
    ========================================================================== */
 (() => {
@@ -483,14 +483,14 @@
       if (nome.length < 2 || mensagem.length < 10) {
         note.textContent =
           mensagem.length < 10 && mensagem.length > 0
-            ? "Conte um pouco mais — pelo menos 10 caracteres."
+            ? "Conte um pouco mais, pelo menos 10 caracteres."
             : "Preencha seu nome e uma mensagem.";
         note.classList.add("is-error");
         return;
       }
 
-      const assunto = `Contato do portfólio — ${nome}`;
-      const corpo = `${mensagem}\n\n—\n${nome}`;
+      const assunto = `Contato do portfólio: ${nome}`;
+      const corpo = `${mensagem}\n\n${nome}`;
       window.location.href =
         `mailto:${CONTACT_EMAIL}` +
         `?subject=${encodeURIComponent(assunto)}` +

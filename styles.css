@@ -1,5 +1,5 @@
 /* ==========================================================================
-   NEXO · Estúdio Digital — folha de estilo
+   NEXO · Estúdio Digital: folha de estilo
    ========================================================================== */
 
 :root {
@@ -783,7 +783,7 @@ code { font-size: 0.85em; color: var(--muted); }
 }
 
 
-/* arte 1 — anéis girando */
+/* arte 1: anéis girando */
 .art--1 .ring {
   position: absolute;
   width: 92px; height: 92px;
@@ -803,7 +803,7 @@ code { font-size: 0.85em; color: var(--muted); }
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* arte 2 — blobs morphing */
+/* arte 2: blobs morphing */
 .art--2 .blob {
   position: absolute;
   width: 104px; height: 104px;
@@ -824,7 +824,7 @@ code { font-size: 0.85em; color: var(--muted); }
   50%      { border-radius: 38% 62% 58% 42% / 62% 40% 60% 38%; transform: rotate(180deg) scale(1.12); }
 }
 
-/* arte 3 — equalizador */
+/* arte 3: equalizador */
 .art--3 .bars { display: flex; align-items: flex-end; gap: 10px; height: 92px; }
 .art--3 .bars i {
   width: 12px;
@@ -842,7 +842,7 @@ code { font-size: 0.85em; color: var(--muted); }
   50%      { height: 100%; opacity: 1; }
 }
 
-/* arte 4 — grade de pontos pulsando */
+/* arte 4: grade de pontos pulsando */
 .art--4 .dots-grid {
   width: 156px; height: 92px;
   background-image: radial-gradient(rgba(78, 227, 255, 0.9) 1.7px, transparent 1.8px);
@@ -854,7 +854,7 @@ code { font-size: 0.85em; color: var(--muted); }
   50%      { opacity: 1; transform: scale(1); }
 }
 
-/* arte 5 — colunas de código descendo */
+/* arte 5: colunas de código descendo */
 .art--5 .code {
   position: relative;
   width: 172px; height: 96px;
@@ -879,7 +879,7 @@ code { font-size: 0.85em; color: var(--muted); }
 }
 @keyframes codeScroll { to { background-position: 0 19px; } }
 
-/* arte 6 — órbitas orgânicas */
+/* arte 6: órbitas orgânicas */
 .art--6 .wave {
   position: absolute;
   width: 190px; height: 190px;
@@ -1496,7 +1496,7 @@ code { font-size: 0.85em; color: var(--muted); }
 }
 
 /* ------------------------------------------------------------------ *
- * Acessibilidade — movimento reduzido
+ * Acessibilidade: movimento reduzido
  * ------------------------------------------------------------------ */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
