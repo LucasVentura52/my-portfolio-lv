@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Portfólio de Lucas Ventura — desenvolvedor front-end e full stack. Vue 3, Vuetify, TypeScript, Next.js, Node, PHP e Java." />
+<meta name="author" content="Lucas Ventura" />
+<meta name="theme-color" content="#07070c" />
+<title>Lucas Ventura · Desenvolvedor Front-end & Full Stack</title>
+<meta property="og:title" content="Lucas Ventura · Desenvolvedor Front-end & Full Stack" />
+<meta property="og:description" content="Portfólio com 12 projetos publicados: Vue 3, TypeScript, Next.js, Node, PHP, Java e React Native." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="assets/avatar.jpg" />
+<link rel="icon" href="assets/avatar.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="loader" id="loader">
+  <div class="loader__mark">
+    <span></span><span></span><span></span>
+  </div>
+  <p class="loader__text">carregando portfólio</p>
+</div>
+
+<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+<div class="progress" aria-hidden="true"><div class="progress__bar" id="progressBar"></div></div>
+
+<div class="grid-bg" aria-hidden="true"></div>
+<div class="orb orb--1" aria-hidden="true"></div>
+<div class="orb orb--2" aria-hidden="true"></div>
+<div class="orb orb--3" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <a class="nav__logo" href="#top" aria-label="Lucas Ventura, ir para o início">
+    <span class="nav__dot"></span>LV
+  </a>
+  <nav class="nav__links" aria-label="Navegação principal">
+    <a href="#sobre" data-nav>Sobre</a>
+    <a href="#projetos" data-nav>Projetos</a>
+    <a href="#stack" data-nav>Stack</a>
+    <a href="#trajetoria" data-nav>Trajetória</a>
+    <a href="#contato" data-nav>Contato</a>
+  </nav>
+  <a class="btn btn--ghost nav__cta" href="https://github.com/LucasVentura52" target="_blank" rel="noopener noreferrer">GitHub</a>
+  <button class="nav__burger" id="burger" aria-label="Abrir menu" aria-expanded="false">
+    <span></span><span></span>
+  </button>
+</header>
+
+<main id="top">
+
+  <!-- ==================== HERO ==================== -->
+  <section class="hero">
+    <canvas class="hero__canvas" id="particles" aria-hidden="true"></canvas>
+
+    <div class="hero__grid">
+      <div class="hero__inner">
+        <p class="eyebrow reveal" data-delay="0">
+          <span class="pulse"></span> Disponível para oportunidades · Brasil
+        </p>
+
+        <h1 class="hero__title">
+          <span class="line line--muted" data-fade data-delay="120">Lucas Ventura</span>
+          <span class="line" data-split data-delay="320">Desenvolvedor front-end</span>
+          <span class="line" data-split data-delay="460">e full stack</span>
+        </h1>
+
+        <p class="hero__sub reveal" data-delay="620">
+          Formado em Análise e Desenvolvimento de Sistemas. Construo interfaces e
+          sistemas web com <strong>Vue 3</strong>, <strong>TypeScript</strong>,
+          <strong>Next.js</strong>, <strong>Node</strong>, <strong>PHP</strong> e
+          <strong>Java</strong> — do protótipo ao deploy.
+        </p>
+
+        <div class="hero__actions reveal" data-delay="760">
+          <a class="btn btn--primary magnetic" href="#projetos">
+            <span>Ver projetos</span>
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="btn btn--link" href="https://github.com/LucasVentura52?tab=repositories" target="_blank" rel="noopener noreferrer">
+            Repositórios no GitHub
+          </a>
+        </div>
+      </div>
+
+      <aside class="profile reveal" data-delay="500" aria-label="Cartão de perfil">
+        <div class="profile__ring" aria-hidden="true"></div>
+        <img class="profile__photo" src="assets/avatar.jpg" alt="Foto de Lucas Ventura" width="400" height="400" loading="eager" />
+        <div class="profile__info">
+          <strong>Lucas Ventura</strong>
+          <span>Análise e Desenvolvimento de Sistemas</span>
+          <span class="profile__status"><i></i> aberto a novos projetos</span>
+        </div>
+      </aside>
+    </div>
+
+    <div class="hero__scroll reveal" data-delay="900">
+      <span class="hero__mouse"><span></span></span>
+      role para explorar
+    </div>
+
+    <div class="hero__glowline" aria-hidden="true"></div>
+  </section>
+
+  <!-- ==================== MARQUEE ==================== -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>VUE 3</span><span class="sep">✦</span>
+      <span>VUETIFY</span><span class="sep">✦</span>
+      <span>TYPESCRIPT</span><span class="sep">✦</span>
+      <span>NEXT.JS</span><span class="sep">✦</span>
+      <span>REACT NATIVE</span><span class="sep">✦</span>
+      <span>NODE.JS</span><span class="sep">✦</span>
+      <span>PHP</span><span class="sep">✦</span>
+      <span>JAVA</span><span class="sep">✦</span>
+      <span>PYTHON</span><span class="sep">✦</span>
+      <span>C#</span><span class="sep">✦</span>
+      <span>DOCKER</span><span class="sep">✦</span>
+      <span>MYSQL</span><span class="sep">✦</span>
+      <span>VUE 3</span><span class="sep">✦</span>
+      <span>VUETIFY</span><span class="sep">✦</span>
+      <span>TYPESCRIPT</span><span class="sep">✦</span>
+      <span>NEXT.JS</span><span class="sep">✦</span>
+      <span>REACT NATIVE</span><span class="sep">✦</span>
+      <span>NODE.JS</span><span class="sep">✦</span>
+      <span>PHP</span><span class="sep">✦</span>
+      <span>JAVA</span><span class="sep">✦</span>
+      <span>PYTHON</span><span class="sep">✦</span>
+      <span>C#</span><span class="sep">✦</span>
+      <span>DOCKER</span><span class="sep">✦</span>
+      <span>MYSQL</span><span class="sep">✦</span>
+    </div>
+  </div>
+
+  <!-- ==================== SOBRE ==================== -->
+  <section class="section" id="sobre">
+    <div class="section__head">
+      <p class="eyebrow reveal">01 — Sobre</p>
+      <h2 class="section__title reveal" data-delay="80">
+        Transformo ideias em <em>código que roda</em>
+      </h2>
+      <p class="section__lead reveal" data-delay="160">
+        Sou formado em Análise e Desenvolvimento de Sistemas e uso o GitHub como
+        caderno de campo desde 2024. Comecei com Java e padrões de projeto na
+        faculdade, passei por sites acadêmicos em HTML e CSS, e hoje construo
+        aplicações completas: interfaces em Vue 3 e Next.js, APIs em Node e PHP.
+        Gosto de front-end com atenção ao detalhe, mas não fujo do back-end —
+        nem de infraestrutura, fila, cache ou rate limiting.
+      </p>
+    </div>
+
+    <div class="stats__grid">
+      <div class="stat reveal tilt" data-delay="0">
+        <span class="stat__num" data-count="28" data-suffix="">0</span>
+        <span class="stat__label">repositórios públicos</span>
+      </div>
+      <div class="stat reveal tilt" data-delay="100">
+        <span class="stat__num" data-count="9" data-suffix="">0</span>
+        <span class="stat__label">projetos com demo online</span>
+      </div>
+      <div class="stat reveal tilt" data-delay="200">
+        <span class="stat__num" data-count="9" data-suffix="">0</span>
+        <span class="stat__label">linguagens no portfólio</span>
+      </div>
+      <div class="stat reveal tilt" data-delay="300">
+        <span class="stat__num" data-count="2024" data-suffix="">0</span>
+        <span class="stat__label">primeiro repositório público</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PROJETOS ==================== -->
+  <section class="section" id="projetos">
+    <div class="section__head">
+      <p class="eyebrow reveal">02 — Projetos</p>
+      <h2 class="section__title reveal" data-delay="80">
+        Doze projetos, <em>nove no ar</em>
+      </h2>
+      <p class="section__lead reveal" data-delay="160">
+        Sites, sistemas e APIs que desenvolvi — todos com o código aberto no
+        GitHub. Filtre por stack ou abra a demo de cada um.
+      </p>
+    </div>
+
+    <div class="filters reveal" role="group" aria-label="Filtrar projetos por stack">
+      <button class="chip is-active" data-filter="todos">Todos <span>12</span></button>
+      <button class="chip" data-filter="vue">Vue 3 <span>6</span></button>
+      <button class="chip" data-filter="next">Next.js &amp; React <span>2</span></button>
+      <button class="chip" data-filter="node">Node &amp; APIs <span>2</span></button>
+      <button class="chip" data-filter="mobile">Mobile <span>1</span></button>
+      <button class="chip" data-filter="acad">Acadêmicos <span>1</span></button>
+    </div>
+
+    <p class="filters__empty" id="filtersEmpty" hidden>Nenhum projeto nessa categoria.</p>
+
+    <div class="projects" id="projectGrid">
+
+      <article class="project reveal tilt" data-stack="next" data-delay="0">
+        <div class="project__art art--5" aria-hidden="true"><span class="code"></span></div>
+        <div class="project__body">
+          <div class="project__top">
+            <h3>Canil Patas &amp; Cia</h3>
+            <span class="project__badge">Next.js 15</span>
+          </div>
+          <p>
+            Plataforma de adoção responsável com catálogo de cães filtrável por
+            porte e sexo, blog em Markdown, timeline da história do canil e SEO
+            com sitemap e robots.
+          </p>
+          <ul class="project__stack">
+            <li>Next.js 15</li><li>React 19</li><li>TypeScript</li><li>Tailwind v4</li>
+          </ul>
+          <div class="project__links">
+            <a class="project__link project__link--demo" href="https://front-projeto-canil.vercel.app" target="_blank" rel="noopener noreferrer">
+              Ver online
+              <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M14 5h5v5M19 5l-8 8M18 14v5H5V6h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="project__link" href="https://github.com/LucasVentura52/front-projeto-canil" target="_blank" rel="noopener noreferrer">Código</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project reveal tilt" data-stack="next" data-delay="80">
+        <div class="project__art art--6" aria-hidden="true"><span class="wave"></span><span class="wave wave--2"></span></div>
+        <div class="project__body">
+          <div class="project__top">
+            <h3>Conselho Tutelar</h3>
+            <span class="project__badge">Full stack</span>
+          </div>
+          <p>
+            Portal público e painel administrativo para um Conselho Tutelar:
+            campanhas, notícias, mural e contato integrados a uma API em PHP, com
+            login, recuperação de senha e dashboard de acessos.
+          </p>
+          <ul class="project__stack">
+            <li>Next.js</li><li>TypeScript</li><li>Tailwind</li><li>PHP</li>
+          </ul>
+          <div class="project__links">
+            <a class="project__link project__link--demo" href="https://siteconselhotutelar.vercel.app" target="_blank" rel="noopener noreferrer">
+              Ver online
+              <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M14 5h5v5M19 5l-8 8M18 14v5H5V6h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="project__link" href="https://github.com/LucasVentura52/guardianship-council-frontend" target="_blank" rel="noopener noreferrer">Front</a>
+            <a class="project__link" href="https://github.com/LucasVentura52/guardianship-council-backend" target="_blank" rel="noopener noreferrer">Back</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project reveal tilt" data-stack="node" data-delay="160">
+        <div class="project__art art--4" aria-hidden="true"><span class="dots-grid"></span></div>
+        <div class="project__body">
+          <div class="project__top">
+            <h3>AI Gateway</h3>
+            <span class="project__badge">Back-end</span>
+          </div>
+          <p>
+            Gateway compatível com a API da OpenAI que roteia entre vários
+            provedores, com fila, rate limiting por token bucket, retry com
+            backoff, fallback entre modelos, cache LRU e streaming SSE.
+          </p>
+          <ul class="project__stack">
+            <li>TypeScript</li><li>Fastify</li><li>Zod</li><li>PQueue</li>
+          </ul>
+          <div class="project__links">
+            <a class="project__link" href="https://github.com/LucasVentura52/gateway-proxy-ia" target="_blank" rel="noopener noreferrer">
+              Ver código
+              <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M14 5h5v5M19 5l-8 8M18 14v5H5V6h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project reveal tilt" data-stack="node" data-delay="240">
+        <div class="project__art art--3" aria-hidden="true">
+          <span class="bars"><i></i><i></i><i></i><i></i><i></i></span>
+        </div>
+        <div class="project__body">
+          <div class="project__top">
+            <h3>PDF Service API</h3>
+            <span class="project__badge">Microserviço</span>
+          </div>
+          <p>
+            Serviço HTTP que recebe HTML pronto, renderiza no Chromium headless
+            via Playwright e devolve o PDF. Tem autenticação por token, CORS
+            configurável e contratos validados com Zod.
+          </p>
+          <ul class="project__stack">
+            <li>Node.js</li><li>Express</li><li>Playwright</li><li>Zod</li>
+          </ul>
+          <div class="project__links">
+            <a class="project__link" href="https://github.com/LucasVentura52/pdf-service-app" target="_blank" rel="noopener noreferrer">
+              Ver código
+              <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M14 5h5v5M19 5l-8 8M18 14v5H5V6h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project reveal tilt" data-stack="vue" data-delay="0">
+        <div class="project__art art--1" aria-hidden="true">
+          <span class="ring"></span><span class="ring ring--2"></span>
+        </div>
+        <div class="project__body">
+          <div class="project__top">
+            <h3>Canteiro Pro</h3>
+            <span class="project__badge">PWA</span>
+          </div>
+          <p>
+            Sistema mobile-first para orçamentos de obra: clientes, serviços,
+            itens com cálculo automático, histórico, controle de recebimentos e
+            relatório mensal. Back-end em Apps Script com Google Sheets.
+          </p>
+          <ul class="project__stack">
+            <li>Vue 3</li><li>Vuetify</li><li>PWA</li><li>Apps Script</li>
+          </ul>
+          <div class="project__links">
+            <a class="project__link project__link--demo" href="https://canteiro-pro.vercel.app" target="_blank" rel="noopener noreferrer">
+              Ver online
+              <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M14 5h5v5M19 5l-8 8M18 14v5H5V6h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="project__link" href="https://github.com/LucasVentura52/canteiro-pro" target="_blank" rel="noopener noreferrer">Código</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project reveal tilt" data-stack="vue" data-delay="80">
+        <div class="project__art art--2" aria-hidden="true">
+          <span class="blob"></span><span class="blob blob--2"></span>
+        </div>
+        <div class="project__body">
+          <div class="project__top">
+            <h3>Resume Studio Pro</h3>
+            <span class="project__badge">Vue + Vuetify</span>
+          </div>
+          <p>
+            Editor e gerenciador de currículos com CRUD em localStorage, quatro
+            templates, edição por seções, pré-visualização ajustada para uma
+            página e exportação em PDF com html2pdf.js.
+          </p>
+          <ul class="project__stack">
+            <li>Vue 3</li><li>Vuetify</li><li>html2pdf.js</li><li>localStorage</li>
+          </ul>
+          <div class="project__links">
+            <a class="project__link project__link--demo" href="https://resume-studio-pro.vercel.app" target="_blank" rel="noopener noreferrer">
+              Ver online
+              <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M14 5h5v5M19 5l-8 8M18 14v5H5V6h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="project__link" href="https://github.com/LucasVentura52/resume-studio-pro" target="_blank" rel="noopener noreferrer">Código</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project reveal tilt" data-stack="vue" data-delay="160">
+        <div class="project__art art--6" aria-hidden="true"><span class="wave"></span><span class="wave wave--2"></span></div>
+        <div class="project__body">
+          <div class="project__top">
+            <h3>MJA Soluções</h3>
+            <span class="project__badge">Site premium</span>
+          </div>
+          <p>
+            Site institucional multi-página para uma assistência técnica, com
+            home, produtos, serviços e contato, animações de entrada no scroll e
+            botão flutuante de WhatsApp.
+          </p>
+          <ul class="project__stack">
+            <li>Vue 3</li><li>Vite</li><li>Vuetify 4</li><li>IntersectionObserver</li>
+          </ul>
+          <div class="project__links">
+            <a class="project__link" href="https://github.com/LucasVentura52/online-web-store" target="_blank" rel="noopener noreferrer">
+              Ver código
+              <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M14 5h5v5M19 5l-8 8M18 14v5H5V6h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project reveal tilt" data-stack="vue" data-delay="240">
+        <div class="project__art art--1" aria-hidden="true">
+          <span class="ring"></span><span class="ring ring--2"></span>
+        </div>
+        <div class="project__body">
+          <div class="project__top">
+            <h3>AutoCar</h3>
+            <span class="project__badge">Landing page</span>
+          </div>
+          <p>
+            Página institucional com hero animado, contadores, seção de soluções
+            em cards expansivos, modal de cadastro que envia para o WhatsApp e
+            visualizador de imagens com zoom, rotação e download.
+          </p>
+          <ul class="project__stack">
+            <li>Vue 3</li><li>Vuetify 3</li><li>Vite 5</li><li>MDI</li>
+          </ul>
+          <div class="project__links">
+            <a class="project__link project__link--demo" href="https://autocar-site-web.vercel.app" target="_blank" rel="noopener noreferrer">
+              Ver online
+              <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M14 5h5v5M19 5l-8 8M18 14v5H5V6h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="project__link" href="https://github.com/LucasVentura52/autocar-site-web" target="_blank" rel="noopener noreferrer">Código</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project reveal tilt" data-stack="vue" data-delay="0">
+        <div class="project__art art--4" aria-hidden="true"><span class="dots-grid"></span></div>
+        <div class="project__body">
+          <div class="project__top">
+            <h3>Autenticação Vue + TS</h3>
+            <span class="project__badge">Docker</span>
+          </div>
+          <p>
+            Aplicação de login, cadastro e boas-vindas com rotas protegidas por
+            token e expiração, validação de formulários, transições animadas e
+            build servido por Docker.
+          </p>
+          <ul class="project__stack">
+            <li>Vue 3</li><li>TypeScript</li><li>Axios</li><li>SweetAlert2</li>
+          </ul>
+          <div class="project__links">
+            <a class="project__link project__link--demo" href="https://project-api-seven-lake.vercel.app" target="_blank" rel="noopener noreferrer">
+              Ver online
+              <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M14 5h5v5M19 5l-8 8M18 14v5H5V6h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="project__link" href="https://github.com/LucasVentura52/project-api" target="_blank" rel="noopener noreferrer">Código</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project reveal tilt" data-stack="vue" data-delay="80">
+        <div class="project__art art--2" aria-hidden="true">
+          <span class="blob"></span><span class="blob blob--2"></span>
+        </div>
+        <div class="project__body">
+          <div class="project__top">
+            <h3>Ketlin Portfolio</h3>
+            <span class="project__badge">One-page</span>
+          </div>
+          <p>
+            Site de apresentação em uma página, com seções hero, sobre,
+            posicionamento e contato, animações de reveal no scroll e tema
+            customizado no Vuetify.
+          </p>
+          <ul class="project__stack">
+            <li>Vue 3</li><li>Vuetify 3</li><li>Vite</li><li>MDI</li>
+          </ul>
+          <div class="project__links">
+            <a class="project__link project__link--demo" href="https://ketlin-portfolio.vercel.app" target="_blank" rel="noopener noreferrer">
+              Ver online
+              <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M14 5h5v5M19 5l-8 8M18 14v5H5V6h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="project__link" href="https://github.com/LucasVentura52/ketlin-portfolio" target="_blank" rel="noopener noreferrer">Código</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project reveal tilt" data-stack="mobile" data-delay="160">
+        <div class="project__art art--3" aria-hidden="true">
+          <span class="bars"><i></i><i></i><i></i><i></i><i></i></span>
+        </div>
+        <div class="project__body">
+          <div class="project__top">
+            <h3>Fake Store App</h3>
+            <span class="project__badge">Mobile</span>
+          </div>
+          <p>
+            Aplicativo em React Native com Expo que consome a Fake Store API:
+            login, listagem de produtos, tela de detalhes e favoritos
+            persistidos entre sessões com AsyncStorage.
+          </p>
+          <ul class="project__stack">
+            <li>React Native</li><li>Expo Router</li><li>Axios</li><li>AsyncStorage</li>
+          </ul>
+          <div class="project__links">
+            <a class="project__link project__link--demo" href="https://react-fake-store-api-seven.vercel.app" target="_blank" rel="noopener noreferrer">
+              Ver online
+              <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M14 5h5v5M19 5l-8 8M18 14v5H5V6h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="project__link" href="https://github.com/LucasVentura52/React-Native-Expo-com-Fake-Store-API" target="_blank" rel="noopener noreferrer">Código</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project reveal tilt" data-stack="acad" data-delay="240">
+        <div class="project__art art--5" aria-hidden="true"><span class="code"></span></div>
+        <div class="project__body">
+          <div class="project__top">
+            <h3>Chácara Fácil</h3>
+            <span class="project__badge">Acadêmico</span>
+          </div>
+          <p>
+            Trabalho de faculdade para aluguel de chácaras: cards com filtro,
+            simulação de reserva, anúncio de novas propriedades, modais
+            reutilizáveis e alertas com SweetAlert2.
+          </p>
+          <ul class="project__stack">
+            <li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>Bootstrap</li>
+          </ul>
+          <div class="project__links">
+            <a class="project__link project__link--demo" href="https://project-chacara.vercel.app" target="_blank" rel="noopener noreferrer">
+              Ver online
+              <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M14 5h5v5M19 5l-8 8M18 14v5H5V6h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="project__link" href="https://github.com/LucasVentura52/project-chacara" target="_blank" rel="noopener noreferrer">Código</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="repo-more reveal">
+      <h3>E mais no GitHub</h3>
+      <p>Estudos, exercícios e experimentos que também fazem parte da trajetória.</p>
+      <ul class="repo-list">
+        <li><a href="https://github.com/LucasVentura52/semaforo-visual-python" target="_blank" rel="noopener noreferrer"><strong>Semáforo Visual</strong><span>Simulador em Python com GUI, cores e tempos personalizáveis</span></a></li>
+        <li><a href="https://github.com/LucasVentura52/lambda-aws-simples" target="_blank" rel="noopener noreferrer"><strong>Lambda AWS</strong><span>Função serverless em Python publicada na AWS</span></a></li>
+        <li><a href="https://github.com/LucasVentura52/api-node-crud" target="_blank" rel="noopener noreferrer"><strong>API Node CRUD</strong><span>API REST com banco relacional e front integrado</span></a></li>
+        <li><a href="https://github.com/LucasVentura52/API-de-vendas" target="_blank" rel="noopener noreferrer"><strong>API de Vendas</strong><span>Estudo de API em C#/.NET</span></a></li>
+        <li><a href="https://github.com/LucasVentura52/API-notas-de-alunos" target="_blank" rel="noopener noreferrer"><strong>API Notas de Alunos</strong><span>Controle de notas em C#/.NET</span></a></li>
+        <li><a href="https://github.com/LucasVentura52/padrao-de-projeto-flyweight" target="_blank" rel="noopener noreferrer"><strong>Padrões de projeto</strong><span>Flyweight, Builder e Strategy em Java</span></a></li>
+        <li><a href="https://github.com/LucasVentura52/programacao-iii-aula-solid-2024-main" target="_blank" rel="noopener noreferrer"><strong>Princípios SOLID</strong><span>Exercícios de boas práticas em Java</span></a></li>
+        <li><a href="https://github.com/LucasVentura52/meu-projeto-docker" target="_blank" rel="noopener noreferrer"><strong>Docker</strong><span>Primeiros passos com containers</span></a></li>
+      </ul>
+      <a class="btn btn--ghost" href="https://github.com/LucasVentura52?tab=repositories" target="_blank" rel="noopener noreferrer">Ver os 28 repositórios</a>
+    </div>
+  </section>
+
+  <!-- ==================== STACK ==================== -->
+  <section class="section" id="stack">
+    <div class="section__head">
+      <p class="eyebrow reveal">03 — Stack</p>
+      <h2 class="section__title reveal" data-delay="80">
+        Ferramentas que eu <em>uso de verdade</em>
+      </h2>
+      <p class="section__lead reveal" data-delay="160">
+        Tudo abaixo aparece em pelo menos um projeto público deste portfólio.
+      </p>
+    </div>
+
+    <div class="skills">
+      <div class="skill-group reveal tilt" data-delay="0">
+        <span class="skill-group__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22"><path d="M3 5h18v14H3zM3 9h18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+        </span>
+        <h3>Front-end</h3>
+        <ul>
+          <li>Vue 3</li><li>Vuetify</li><li>TypeScript</li><li>JavaScript</li>
+          <li>Next.js 15</li><li>React 19</li><li>Tailwind CSS v4</li><li>HTML5 &amp; CSS3</li>
+        </ul>
+      </div>
+
+      <div class="skill-group reveal tilt" data-delay="100">
+        <span class="skill-group__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22"><path d="M4 6h16v12H4zM8 10h8M8 14h5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+        </span>
+        <h3>Back-end</h3>
+        <ul>
+          <li>Node.js</li><li>Express</li><li>Fastify</li><li>PHP</li>
+          <li>Java</li><li>C# / .NET</li><li>Python</li><li>APIs REST</li>
+        </ul>
+      </div>
+
+      <div class="skill-group reveal tilt" data-delay="200">
+        <span class="skill-group__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22"><path d="M12 3v7m0 4v7M3 12h7m4 0h7M6.3 6.3l4.9 4.9m1.6 1.6l4.9 4.9m0-11.4l-4.9 4.9m-1.6 1.6l-4.9 4.9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </span>
+        <h3>Mobile</h3>
+        <ul>
+          <li>React Native</li><li>Expo</li><li>Expo Router</li><li>AsyncStorage</li>
+          <li>PWA</li><li>Layout responsivo</li>
+        </ul>
+      </div>
+
+      <div class="skill-group reveal tilt" data-delay="300">
+        <span class="skill-group__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22"><path d="M4 7c0-1.7 3.6-3 8-3s8 1.3 8 3-3.6 3-8 3-8-1.3-8-3zm0 0v10c0 1.7 3.6 3 8 3s8-1.3 8-3V7M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+        </span>
+        <h3>Dados &amp; infraestrutura</h3>
+        <ul>
+          <li>MySQL</li><li>Google Sheets / Apps Script</li><li>Docker</li>
+          <li>AWS Lambda</li><li>Vercel</li><li>Git &amp; GitHub</li><li>Playwright</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TRAJETÓRIA ==================== -->
+  <section class="section" id="trajetoria">
+    <div class="section__head">
+      <p class="eyebrow reveal">04 — Trajetória</p>
+      <h2 class="section__title reveal" data-delay="80">
+        De exercícios de faculdade a <em>sistemas em produção</em>
+      </h2>
+    </div>
+
+    <ol class="timeline">
+      <li class="timeline__item reveal">
+        <span class="timeline__dot"></span>
+        <div>
+          <span class="timeline__step">Agosto de 2024</span>
+          <h3>Primeiros repositórios</h3>
+          <p>Java na faculdade: padrões de projeto Flyweight, Builder e Strategy, além de exercícios de SOLID.</p>
+        </div>
+      </li>
+      <li class="timeline__item reveal" data-delay="90">
+        <span class="timeline__dot"></span>
+        <div>
+          <span class="timeline__step">2025</span>
+          <h3>Ampliando o repertório</h3>
+          <p>Sites acadêmicos em HTML, CSS e JavaScript, APIs em C# e Node, app mobile com React Native e Expo, Python e uma função Lambda na AWS.</p>
+        </div>
+      </li>
+      <li class="timeline__item reveal" data-delay="180">
+        <span class="timeline__dot"></span>
+        <div>
+          <span class="timeline__step">Fevereiro a abril de 2026</span>
+          <h3>Vue 3 em projetos reais</h3>
+          <p>AutoCar, Canteiro Pro, Resume Studio Pro e MJA Soluções: sites e sistemas para clientes, todos publicados na Vercel.</p>
+        </div>
+      </li>
+      <li class="timeline__item reveal" data-delay="270">
+        <span class="timeline__dot"></span>
+        <div>
+          <span class="timeline__step">Junho a setembro de 2026</span>
+          <h3>Full stack e back-end próprio</h3>
+          <p>Conselho Tutelar com Next.js e API em PHP, o site do Canil Patas &amp; Cia em Next.js 15, e dois back-ends autorais: AI Gateway e PDF Service API.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ==================== CONTATO ==================== -->
+  <section class="cta" id="contato">
+    <div class="cta__glow" aria-hidden="true"></div>
+    <h2 class="cta__title reveal">Vamos trabalhar juntos?</h2>
+    <p class="cta__sub reveal" data-delay="90">
+      Estou aberto a oportunidades em front-end e full stack. Me chame por onde preferir.
+    </p>
+
+    <div class="contact reveal" data-delay="180">
+      <a class="contact__card tilt" href="https://github.com/LucasVentura52" target="_blank" rel="noopener noreferrer">
+        <span class="contact__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.36 1.09 2.94.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.99 1.03-2.69-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.03a9.5 9.5 0 0 1 5 0c1.91-1.3 2.75-1.03 2.75-1.03.55 1.38.2 2.4.1 2.65.64.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg>
+        </span>
+        <strong>GitHub</strong>
+        <span>/LucasVentura52</span>
+      </a>
+
+      <a class="contact__card tilt" href="https://www.linkedin.com/in/lucas-ventura-99984b281/" target="_blank" rel="noopener noreferrer">
+        <span class="contact__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM10 9h3.8v1.7h.05A4.2 4.2 0 0 1 17.6 8.7c3 0 3.4 1.9 3.4 4.5V21h-4v-6.6c0-1.6-.03-3.6-2.2-3.6-2.2 0-2.5 1.7-2.5 3.5V21h-4z"/></svg>
+        </span>
+        <strong>LinkedIn</strong>
+        <span>lucas-ventura</span>
+      </a>
+
+      <a class="contact__card tilt" href="https://www.instagram.com/lucas_ventura__/" target="_blank" rel="noopener noreferrer">
+        <span class="contact__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor" stroke="none"/></svg>
+        </span>
+        <strong>Instagram</strong>
+        <span>@lucas_ventura__</span>
+      </a>
+    </div>
+
+    <form class="contact__form reveal" data-delay="260" id="messageForm" novalidate>
+      <p class="contact__formTitle">Ou escreva uma mensagem rápida</p>
+      <div class="field field--stack">
+        <label class="sr-only" for="nome">Seu nome</label>
+        <input type="text" id="nome" name="nome" placeholder="Seu nome" autocomplete="name" required />
+        <label class="sr-only" for="mensagem">Sua mensagem</label>
+        <textarea id="mensagem" name="mensagem" rows="3" placeholder="Conte brevemente o que você precisa..." required></textarea>
+        <button class="btn btn--primary magnetic" type="submit">
+          <span>Enviar mensagem</span>
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M4 12l16-8-6 16-2.6-6.4L4 12z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <p class="cta__note" id="formNote">Abrirá seu aplicativo de e-mail com a mensagem pronta.</p>
+    </form>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__grid">
+    <div>
+      <a class="nav__logo" href="#top"><span class="nav__dot"></span>LV</a>
+      <p class="footer__p">
+        Portfólio de Lucas Ventura — desenvolvedor front-end e full stack,
+        formado em Análise e Desenvolvimento de Sistemas.
+      </p>
+    </div>
+    <div>
+      <h4>Navegar</h4>
+      <a href="#sobre">Sobre</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#stack">Stack</a>
+      <a href="#trajetoria">Trajetória</a>
+    </div>
+    <div>
+      <h4>Projetos no ar</h4>
+      <a href="https://front-projeto-canil.vercel.app" target="_blank" rel="noopener noreferrer">Canil Patas &amp; Cia</a>
+      <a href="https://siteconselhotutelar.vercel.app" target="_blank" rel="noopener noreferrer">Conselho Tutelar</a>
+      <a href="https://canteiro-pro.vercel.app" target="_blank" rel="noopener noreferrer">Canteiro Pro</a>
+      <a href="https://resume-studio-pro.vercel.app" target="_blank" rel="noopener noreferrer">Resume Studio Pro</a>
+    </div>
+    <div>
+      <h4>Contato</h4>
+      <a href="https://github.com/LucasVentura52" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/lucas-ventura-99984b281/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://www.instagram.com/lucas_ventura__/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <p class="footer__p">Brasil · remoto</p>
+    </div>
+  </div>
+  <div class="footer__base">
+    <span>© <span id="year">2026</span> Lucas Ventura</span>
+    <span>Feito do zero com HTML, CSS e JavaScript</span>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Voltar ao topo">
+  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+
+<script src="script.js"></script>
+</body>
+</html>
