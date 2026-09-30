@@ -657,8 +657,14 @@ code { font-size: 0.85em; color: var(--muted); }
   border-bottom: 1px solid var(--stroke);
   background: radial-gradient(120% 120% at 20% 10%, rgba(139, 92, 246, 0.22), rgba(7, 7, 12, 0.6));
   overflow: hidden;
-  display: grid;
-  place-items: center;
+}
+
+/* Placeholder único. Trocar por uma imagem real é só substituir o src. */
+.project__art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .project__body {
@@ -754,119 +760,6 @@ code { font-size: 0.85em; color: var(--muted); }
   color: #06060a;
   box-shadow: 0 14px 32px -14px rgba(78, 227, 255, 0.95);
 }
-
-
-/* arte 1: anéis girando */
-.art--1 .ring {
-  position: absolute;
-  width: 92px; height: 92px;
-  border: 1.5px solid rgba(78, 227, 255, 0.85);
-  border-radius: 50%;
-  border-top-color: transparent;
-  border-right-color: transparent;
-  animation: spin 4.5s linear infinite;
-}
-.art--1 .ring--2 {
-  width: 128px; height: 128px;
-  border-color: rgba(255, 78, 205, 0.7);
-  border-bottom-color: transparent;
-  border-left-color: transparent;
-  animation-duration: 7s;
-  animation-direction: reverse;
-}
-@keyframes spin { to { transform: rotate(360deg); } }
-
-/* arte 2: blobs morphing */
-.art--2 .blob {
-  position: absolute;
-  width: 104px; height: 104px;
-  background: linear-gradient(135deg, var(--cyan), var(--violet));
-  border-radius: 62% 38% 45% 55% / 50% 62% 38% 50%;
-  filter: blur(1px);
-  animation: morph 8s ease-in-out infinite;
-}
-.art--2 .blob--2 {
-  width: 66px; height: 66px;
-  background: linear-gradient(135deg, var(--magenta), var(--violet));
-  opacity: 0.85;
-  animation-duration: 5.5s;
-  animation-direction: reverse;
-}
-@keyframes morph {
-  0%, 100% { border-radius: 62% 38% 45% 55% / 50% 62% 38% 50%; transform: rotate(0deg) scale(1); }
-  50%      { border-radius: 38% 62% 58% 42% / 62% 40% 60% 38%; transform: rotate(180deg) scale(1.12); }
-}
-
-/* arte 3: equalizador */
-.art--3 .bars { display: flex; align-items: flex-end; gap: 10px; height: 92px; }
-.art--3 .bars i {
-  width: 12px;
-  border-radius: 6px;
-  background: linear-gradient(180deg, var(--cyan), var(--violet));
-  animation: eq 1.25s ease-in-out infinite;
-}
-.art--3 .bars i:nth-child(1) { animation-delay: 0s; }
-.art--3 .bars i:nth-child(2) { animation-delay: 0.14s; }
-.art--3 .bars i:nth-child(3) { animation-delay: 0.28s; }
-.art--3 .bars i:nth-child(4) { animation-delay: 0.42s; }
-.art--3 .bars i:nth-child(5) { animation-delay: 0.56s; }
-@keyframes eq {
-  0%, 100% { height: 26%; opacity: 0.7; }
-  50%      { height: 100%; opacity: 1; }
-}
-
-/* arte 4: grade de pontos pulsando */
-.art--4 .dots-grid {
-  width: 156px; height: 92px;
-  background-image: radial-gradient(rgba(78, 227, 255, 0.9) 1.7px, transparent 1.8px);
-  background-size: 17px 17px;
-  animation: gridPulse 3.2s ease-in-out infinite;
-}
-@keyframes gridPulse {
-  0%, 100% { opacity: 0.4; transform: scale(0.93); }
-  50%      { opacity: 1; transform: scale(1); }
-}
-
-/* arte 5: colunas de código descendo */
-.art--5 .code {
-  position: relative;
-  width: 172px; height: 96px;
-  overflow: hidden;
-}
-.art--5 .code::before,
-.art--5 .code::after {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 64%; height: 100%;
-  background-image: repeating-linear-gradient(to bottom, currentColor 0 3px, transparent 3px 19px);
-  animation: codeScroll 3s linear infinite;
-}
-.art--5 .code::before { color: rgba(78, 227, 255, 0.8); }
-.art--5 .code::after {
-  left: auto; right: 0;
-  width: 44%;
-  color: rgba(139, 92, 246, 0.8);
-  animation-duration: 4.4s;
-  animation-direction: reverse;
-}
-@keyframes codeScroll { to { background-position: 0 19px; } }
-
-/* arte 6: órbitas orgânicas */
-.art--6 .wave {
-  position: absolute;
-  width: 190px; height: 190px;
-  border: 1.5px solid rgba(78, 227, 255, 0.55);
-  border-radius: 45% 55% 52% 48% / 52% 46% 54% 48%;
-  animation: waveSpin 11s linear infinite;
-}
-.art--6 .wave--2 {
-  width: 132px; height: 132px;
-  border-color: rgba(255, 78, 205, 0.6);
-  animation-duration: 16s;
-  animation-direction: reverse;
-}
-@keyframes waveSpin { to { transform: rotate(360deg); } }
 
 /* ------------------------------------------------------------------ *
  * Linha do tempo

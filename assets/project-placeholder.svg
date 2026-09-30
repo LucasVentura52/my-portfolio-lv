@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 264" width="720" height="264" role="presentation">
+  <defs>
+    <linearGradient id="fundo" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0c0c15"/>
+      <stop offset="1" stop-color="#07070c"/>
+    </linearGradient>
+    <radialGradient id="brilho" cx="0.2" cy="0.1" r="1">
+      <stop offset="0" stop-color="#8b5cf6" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#8b5cf6" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="720" height="264" fill="url(#fundo)"/>
+  <rect width="720" height="264" fill="url(#brilho)"/>
+
+  <rect x="32" y="32" width="656" height="200" rx="16"
+        fill="none" stroke="#ffffff" stroke-opacity="0.14"
+        stroke-width="2" stroke-dasharray="10 10"/>
+
+  <g fill="none" stroke="#4ee3ff" stroke-width="4"
+     stroke-linecap="round" stroke-linejoin="round">
+    <rect x="312" y="76" width="96" height="72" rx="10"/>
+    <path d="M318 140 L342 112 L360 132 L374 118 L402 140"/>
+  </g>
+  <circle cx="336" cy="100" r="9" fill="#4ee3ff"/>
+
+  <text x="360" y="190" fill="#9a9aae" font-size="21"
+        font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
+        text-anchor="middle">Imagem do projeto</text>
+</svg>
