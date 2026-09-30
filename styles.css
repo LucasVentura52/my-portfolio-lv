@@ -221,20 +221,6 @@ code { font-size: 0.85em; color: var(--muted); }
   margin-right: auto;
 }
 
-.nav__dot {
-  width: 9px; height: 9px;
-  border-radius: 50%;
-  background: var(--cyan);
-  box-shadow: 0 0 0 0 rgba(78, 227, 255, 0.6);
-  animation: dotPulse 2.4s ease-out infinite;
-}
-
-@keyframes dotPulse {
-  0%   { box-shadow: 0 0 0 0 rgba(78, 227, 255, 0.55); }
-  70%  { box-shadow: 0 0 0 12px rgba(78, 227, 255, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(78, 227, 255, 0); }
-}
-
 .nav__links {
   display: flex;
   gap: 6px;
@@ -364,19 +350,6 @@ code { font-size: 0.85em; color: var(--muted); }
   text-transform: uppercase;
   color: var(--muted);
   margin-bottom: 26px;
-}
-
-.pulse {
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: var(--lime);
-  box-shadow: 0 0 12px var(--lime);
-  animation: blink 1.8s ease-in-out infinite;
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50%      { opacity: 0.25; }
 }
 
 .hero__title {
@@ -1182,14 +1155,6 @@ code { font-size: 0.85em; color: var(--muted); }
   padding-top: 12px;
   border-top: 1px solid var(--stroke);
   color: rgba(255, 255, 255, 0.82) !important;
-}
-
-.profile__status i {
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: var(--lime);
-  box-shadow: 0 0 10px var(--lime);
-  animation: blink 1.8s ease-in-out infinite;
 }
 
 .hero__sub strong {
