@@ -38,18 +38,20 @@
   <a class="nav__logo" href="#top" aria-label="Lucas Ventura, ir para o início">
     LV
   </a>
-  <nav class="nav__links" aria-label="Navegação principal">
+  <nav class="nav__links" id="navLinks" aria-label="Navegação principal">
     <a href="#sobre" data-nav>Sobre</a>
     <a href="#projetos" data-nav>Projetos</a>
     <a href="#stack" data-nav>Stack</a>
     <a href="#trajetoria" data-nav>Trajetória</a>
     <a href="#contato" data-nav>Contato</a>
+    <a class="nav__linksCta" href="https://github.com/LucasVentura52" target="_blank" rel="noopener noreferrer">GitHub</a>
   </nav>
   <a class="btn btn--ghost nav__cta" href="https://github.com/LucasVentura52" target="_blank" rel="noopener noreferrer">GitHub</a>
-  <button class="nav__burger" id="burger" aria-label="Abrir menu" aria-expanded="false">
+  <button class="nav__burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">
     <span></span><span></span>
   </button>
 </header>
+<div class="nav__scrim" id="navScrim" hidden></div>
 
 <main id="top">
 

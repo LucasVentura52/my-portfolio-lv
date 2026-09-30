@@ -354,26 +354,84 @@
   }
 
   const burger = $("#burger");
-  const menu = $(".nav__links");
-
-  function closeMenu() {
-    if (!menu) return;
-    menu.classList.remove("is-open");
-    burger.setAttribute("aria-expanded", "false");
-    document.body.classList.remove("is-locked");
-  }
+  const menu = $("#navLinks");
+  const scrim = $("#navScrim");
+  const navQuery = window.matchMedia("(min-width: 901px)");
 
   if (burger && menu) {
-    burger.addEventListener("click", () => {
-      const open = menu.classList.toggle("is-open");
+    // offsetParent e null dentro de um container position:fixed, entao
+    // usamos getClientRects() para detectar o que esta realmente visivel
+    const focusables = () =>
+      $$("a, button:not([tabindex='-1'])", menu).filter(
+        (el) => el.getClientRects().length > 0
+      );
+
+    function setMenu(open) {
+      menu.classList.toggle("is-open", open);
       burger.setAttribute("aria-expanded", String(open));
+      burger.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
       document.body.classList.toggle("is-locked", open);
+      if (scrim) {
+        scrim.hidden = !open;
+        // um quadro para o navegador aplicar a opacidade inicial
+        if (open) requestAnimationFrame(() => scrim.classList.add("is-on"));
+        else scrim.classList.remove("is-on");
+      }
+    }
+
+    function openMenu() {
+      setMenu(true);
+      const first = focusables()[0];
+      if (first) first.focus();
+    }
+
+    // Devolve o foco para o burger, senao o teclado perde o ponto de partida
+    function closeMenu(returnFocus = true) {
+      if (!menu.classList.contains("is-open")) return;
+      setMenu(false);
+      if (returnFocus) burger.focus();
+    }
+
+    burger.addEventListener("click", () => {
+      if (menu.classList.contains("is-open")) closeMenu();
+      else openMenu();
     });
+
+    // o proprio burger vira o X quando aberto, entao nao ha botao extra
+    if (scrim) scrim.addEventListener("click", () => closeMenu());
+
     menu.addEventListener("click", (e) => {
-      if (e.target.tagName === "A") closeMenu();
+      if (e.target.closest("a")) closeMenu(false);
     });
+
     window.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeMenu();
+      if (!menu.classList.contains("is-open")) return;
+
+      if (e.key === "Escape") {
+        closeMenu();
+        return;
+      }
+
+      // Prende o Tab dentro do painel enquanto ele estiver aberto
+      if (e.key !== "Tab") return;
+      const items = focusables();
+      if (!items.length) return;
+      const first = items[0];
+      const last = items[items.length - 1];
+      const active = document.activeElement;
+
+      if (e.shiftKey && (active === first || !menu.contains(active))) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && active === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    });
+
+    // Girar o aparelho para o tablet/desktop nao pode deixar a pagina travada
+    navQuery.addEventListener("change", (e) => {
+      if (e.matches) closeMenu(false);
     });
   }
 
