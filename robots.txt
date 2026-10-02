@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lucasventuraportfolio.vercel.app/sitemap.xml

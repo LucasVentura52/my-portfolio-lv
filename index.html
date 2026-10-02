@@ -1,23 +1,72 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="no-js">
 <head>
 <meta charset="UTF-8" />
+<script>
+  /* JS ativo: os estados escondidos (loader, reveal, palavras do herói) só
+     valem com .js, entao o conteúdo continua visível sem JavaScript.
+     Se script.js falhar em até 4s, volta para .no-js — que além de liberar
+     o conteúdo esconde filtros, formulário e "topo", que não funcionariam. */
+  document.documentElement.classList.replace("no-js", "js");
+  setTimeout(function () {
+    if (!document.documentElement.classList.contains("js-ready")) {
+      document.documentElement.classList.replace("js", "no-js");
+    }
+  }, 4000);
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="color-scheme" content="dark" />
 <meta name="description" content="Portfólio de Lucas Ventura, desenvolvedor front-end e full stack. Vue 3, Vuetify, TypeScript, Next.js, Node, PHP e Java." />
 <meta name="author" content="Lucas Ventura" />
 <meta name="theme-color" content="#07070c" />
-<title>Lucas Ventura · Desenvolvedor Front-end & Full Stack</title>
-<meta property="og:title" content="Lucas Ventura · Desenvolvedor Front-end & Full Stack" />
+<title>Lucas Ventura · Desenvolvedor Front-end &amp; Full Stack</title>
+<link rel="canonical" href="https://lucasventuraportfolio.vercel.app/" />
+<meta property="og:site_name" content="Portfólio Lucas Ventura" />
+<meta property="og:locale" content="pt_BR" />
+<meta property="og:title" content="Lucas Ventura · Desenvolvedor Front-end &amp; Full Stack" />
 <meta property="og:description" content="Portfólio com 12 projetos publicados: Vue 3, TypeScript, Next.js, Node, PHP, Java e React Native." />
 <meta property="og:type" content="website" />
-<meta property="og:image" content="assets/avatar.jpg" />
+<meta property="og:url" content="https://lucasventuraportfolio.vercel.app/" />
+<meta property="og:image" content="https://lucasventuraportfolio.vercel.app/assets/avatar.jpg" />
+<meta property="og:image:width" content="400" />
+<meta property="og:image:height" content="400" />
+<meta property="og:image:alt" content="Foto de Lucas Ventura" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Lucas Ventura · Desenvolvedor Front-end &amp; Full Stack" />
+<meta name="twitter:description" content="Portfólio com 12 projetos publicados: Vue 3, TypeScript, Next.js, Node, PHP, Java e React Native." />
+<meta name="twitter:image" content="https://lucasventuraportfolio.vercel.app/assets/avatar.jpg" />
 <link rel="icon" href="assets/avatar.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;800&family=Space+Grotesk:wght@400;500;700&display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;800&family=Space+Grotesk:wght@400;500;700&display=swap" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;800&family=Space+Grotesk:wght@400;500;700&display=swap" /></noscript>
 <link rel="stylesheet" href="styles.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Lucas Ventura",
+  "url": "https://lucasventuraportfolio.vercel.app/",
+  "image": "https://lucasventuraportfolio.vercel.app/assets/avatar.jpg",
+  "jobTitle": "Desenvolvedor Front-end e Full Stack",
+  "description": "Desenvolvedor front-end e full stack formado em Análise e Desenvolvimento de Sistemas.",
+  "address": { "@type": "PostalAddress", "addressCountry": "BR" },
+  "sameAs": [
+    "https://github.com/LucasVentura52",
+    "https://www.linkedin.com/in/lucas-ventura-99984b281/",
+    "https://www.instagram.com/lucas_ventura__/"
+  ],
+  "knowsAbout": [
+    "Vue 3", "Vuetify", "TypeScript", "Next.js", "React", "Node.js",
+    "PHP", "Java", "Python", "C#", "Docker", "MySQL"
+  ]
+}
+</script>
 </head>
 <body>
+
+<a class="skip-link" href="#top">Pular para o conteúdo</a>
 
 <div class="loader" id="loader">
   <div class="loader__mark">
@@ -35,7 +84,7 @@
 <div class="orb orb--3" aria-hidden="true"></div>
 
 <header class="nav" id="nav">
-  <a class="nav__logo" href="#top" aria-label="Lucas Ventura, ir para o início">
+  <a class="nav__logo" href="#top" aria-label="LV — ir para o início">
     LV
   </a>
   <nav class="nav__links" id="navLinks" aria-label="Navegação principal">
@@ -47,13 +96,13 @@
     <a class="nav__linksCta" href="https://github.com/LucasVentura52" target="_blank" rel="noopener noreferrer">GitHub</a>
   </nav>
   <a class="btn btn--ghost nav__cta" href="https://github.com/LucasVentura52" target="_blank" rel="noopener noreferrer">GitHub</a>
-  <button class="nav__burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">
+  <button class="nav__burger" id="burger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">
     <span></span><span></span>
   </button>
 </header>
 <div class="nav__scrim" id="navScrim" hidden></div>
 
-<main id="top">
+<main id="top" tabindex="-1">
 
   <!-- ==================== HERO ==================== -->
   <section class="hero">
@@ -185,12 +234,12 @@
     </div>
 
     <div class="filters reveal" role="group" aria-label="Filtrar projetos por stack">
-      <button class="chip is-active" data-filter="todos">Todos <span>12</span></button>
-      <button class="chip" data-filter="vue">Vue 3 <span>6</span></button>
-      <button class="chip" data-filter="next">Next.js &amp; React <span>2</span></button>
-      <button class="chip" data-filter="node">Node &amp; APIs <span>2</span></button>
-      <button class="chip" data-filter="mobile">Mobile <span>1</span></button>
-      <button class="chip" data-filter="acad">Acadêmicos <span>1</span></button>
+      <button class="chip is-active" type="button" data-filter="todos">Todos <span>12</span></button>
+      <button class="chip" type="button" data-filter="vue">Vue 3 <span>6</span></button>
+      <button class="chip" type="button" data-filter="next">Next.js &amp; React <span>2</span></button>
+      <button class="chip" type="button" data-filter="node">Node &amp; APIs <span>2</span></button>
+      <button class="chip" type="button" data-filter="mobile">Mobile <span>1</span></button>
+      <button class="chip" type="button" data-filter="acad">Acadêmicos <span>1</span></button>
     </div>
 
     <p class="filters__empty" id="filtersEmpty" hidden>Nenhum projeto nessa categoria.</p>
@@ -664,7 +713,7 @@
           <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M4 12l16-8-6 16-2.6-6.4L4 12z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></svg>
         </button>
       </div>
-      <p class="cta__note" id="formNote">Abrirá seu aplicativo de e-mail com a mensagem pronta.</p>
+      <p class="cta__note" id="formNote" role="status">Abrirá seu aplicativo de e-mail com a mensagem pronta.</p>
     </form>
   </section>
 
@@ -680,21 +729,21 @@
       </p>
     </div>
     <div>
-      <h4>Navegar</h4>
+      <h2>Navegar</h2>
       <a href="#sobre">Sobre</a>
       <a href="#projetos">Projetos</a>
       <a href="#stack">Stack</a>
       <a href="#trajetoria">Trajetória</a>
     </div>
     <div>
-      <h4>Projetos no ar</h4>
+      <h2>Projetos no ar</h2>
       <a href="https://front-projeto-canil.vercel.app" target="_blank" rel="noopener noreferrer">Canil Patas &amp; Cia</a>
       <a href="https://siteconselhotutelar.vercel.app" target="_blank" rel="noopener noreferrer">Conselho Tutelar</a>
       <a href="https://canteiro-pro.vercel.app" target="_blank" rel="noopener noreferrer">Canteiro Pro</a>
       <a href="https://resume-studio-pro.vercel.app" target="_blank" rel="noopener noreferrer">Resume Studio Pro</a>
     </div>
     <div>
-      <h4>Contato</h4>
+      <h2>Contato</h2>
       <a href="https://github.com/LucasVentura52" target="_blank" rel="noopener noreferrer">GitHub</a>
       <a href="https://www.linkedin.com/in/lucas-ventura-99984b281/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       <a href="https://www.instagram.com/lucas_ventura__/" target="_blank" rel="noopener noreferrer">Instagram</a>
@@ -707,7 +756,7 @@
   </div>
 </footer>
 
-<button class="to-top" id="toTop" aria-label="Voltar ao topo">
+<button class="to-top" id="toTop" type="button" aria-label="Voltar ao topo">
   <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
 </button>
 

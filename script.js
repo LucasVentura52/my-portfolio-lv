@@ -1,5 +1,5 @@
 /* ==========================================================================
-   NEXO · Estúdio Digital: interações e animações
+   Portfólio Lucas Ventura: interações e animações
    Vanilla JS, sem dependências.
    ========================================================================== */
 (() => {
@@ -65,14 +65,23 @@
     });
   }
 
+  // Elementos do herói que entram escalonados quando o loader abre.
+  const heroReveals = $$(".hero .reveal");
+
   function revealHero() {
-    loader.classList.add("is-hidden");
+    if (loader) loader.classList.add("is-hidden");
     document.body.classList.add("is-locked");
     setTimeout(() => document.body.classList.remove("is-locked"), 60);
     if (heroTitle) heroTitle.classList.add("is-revealed");
-    setTimeout(() => {
-      $$(".hero .reveal").forEach((el) => el.classList.add("is-in"));
-    }, 250);
+
+    /* O stagger parte daqui e não do IntersectionObserver: o observer dispara
+       logo no carregamento, quando a tela ainda está coberta pelo loader, e os
+       elementos acabavam aparecendo atrás dele. */
+    heroReveals.forEach((el) => {
+      const delay = parseInt(el.dataset.delay || "0", 10);
+      if (reduced || !delay) revealEl(el);
+      else setTimeout(() => revealEl(el), delay);
+    });
   }
 
   window.addEventListener("load", () => {
@@ -80,12 +89,13 @@
     if (reduced) {
       if (loader) loader.classList.add("is-hidden");
       if (heroTitle) heroTitle.classList.add("is-revealed");
+      heroReveals.forEach((el) => revealEl(el));
       return;
     }
     setTimeout(revealHero, 900);
   });
 
-  // Salvaguarda: se o load demorar, libera a tela mesmo assim
+  // Salvaguarda: se o load demorar ou o handler falhar, libera a tela mesmo assim
   window.setTimeout(() => {
     if (loader && !loader.classList.contains("is-hidden")) revealHero();
   }, 3500);
@@ -99,26 +109,29 @@
     el.dataset.in = "1";
     el.classList.add("is-in");
     if (el.classList.contains("stat")) countUp($(".stat__num", el));
-    revealObserver.unobserve(el);
+    if (revealObserver) revealObserver.unobserve(el);
   }
 
-  const revealObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        const el = entry.target;
-        if (!entry.isIntersecting) {
-          // Já ficou acima da tela (ex.: abertura por link âncora):
-          // revela na hora, sem animação.
-          if (entry.boundingClientRect.top < 0) revealEl(el, false);
-          return;
-        }
-        const delay = parseInt(el.dataset.delay || "0", 10);
-        if (reduced || !delay) revealEl(el);
-        else setTimeout(() => revealEl(el), delay);
-      });
-    },
-    { threshold: 0.15, rootMargin: "0px 0px -8% 0px" }
-  );
+  const revealObserver =
+    "IntersectionObserver" in window
+      ? new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              const el = entry.target;
+              if (!entry.isIntersecting) {
+                // Já ficou acima da tela (ex.: abertura por link âncora):
+                // revela na hora, sem animação.
+                if (entry.boundingClientRect.top < 0) revealEl(el, false);
+                return;
+              }
+              const delay = parseInt(el.dataset.delay || "0", 10);
+              if (reduced || !delay) revealEl(el);
+              else setTimeout(() => revealEl(el), delay);
+            });
+          },
+          { threshold: 0.15, rootMargin: "0px 0px -8% 0px" }
+        )
+      : null;
 
   function countUp(node) {
     if (!node || node.dataset.done) return;
@@ -142,7 +155,10 @@
   // O IntersectionObserver não dispara quando um elemento salta de "abaixo"
   // para "acima" da tela (barra de rolagem arrastada, tecla End, link âncora).
   // Esta rede de segurança garante que nada fique invisível ou em zero.
-  const revealTargets = $$(".reveal, .timeline, .stat");
+  // O herói fica de fora: ele tem entrada própria, ancorada ao fim do loader.
+  const revealTargets = $$(".reveal, .timeline, .stat").filter(
+    (el) => !el.closest(".hero")
+  );
 
   function catchPassedElements() {
     const limit = window.innerHeight * 0.92;
@@ -153,7 +169,8 @@
     }
   }
 
-  revealTargets.forEach((el) => revealObserver.observe(el));
+  if (revealObserver) revealTargets.forEach((el) => revealObserver.observe(el));
+  else revealTargets.forEach((el) => revealEl(el, false)); // navegador sem IO
 
   /* ---------------------------------------------------------------- *
    * 3. Canvas de partículas (hero)
@@ -168,14 +185,25 @@
     let h = 0;
     let dpr = 1;
     let running = true;
+    // Retângulo cacheado: ler getBoundingClientRect() dentro do mousemove
+    // forçava um reflow a cada movimento do cursor.
+    let box = { left: 0, top: 0, width: 0, height: 0 };
 
     const COLORS = ["78, 227, 255", "139, 92, 246", "255, 78, 205"];
 
+    function measure() {
+      const r = canvas.getBoundingClientRect();
+      box.left = r.left;
+      box.top = r.top;
+      box.width = r.width;
+      box.height = r.height;
+    }
+
     function resize() {
-      const rect = canvas.getBoundingClientRect();
+      measure();
       dpr = Math.min(window.devicePixelRatio || 1, 2);
-      w = rect.width;
-      h = rect.height;
+      w = box.width;
+      h = box.height;
       canvas.width = Math.round(w * dpr);
       canvas.height = Math.round(h * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -244,29 +272,36 @@
     }
 
     window.addEventListener("resize", resize);
+    window.addEventListener("scroll", measure, { passive: true });
     window.addEventListener("mousemove", (e) => {
-      const rect = canvas.getBoundingClientRect();
-      pointer.x = e.clientX - rect.left;
-      pointer.y = e.clientY - rect.top;
+      if (!running) return; // hero fora da tela: nem compensa atualizar
+      pointer.x = e.clientX - box.left;
+      pointer.y = e.clientY - box.top;
     });
     window.addEventListener("mouseout", () => {
       pointer.x = pointer.y = -999;
     });
 
-    new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !running) {
-          running = true;
-          requestAnimationFrame(frame);
-        } else if (!entry.isIntersecting) {
-          running = false;
-        }
-      },
-      { threshold: 0 }
-    ).observe(canvas);
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting && !running) {
+            running = true;
+            requestAnimationFrame(frame);
+          } else if (!entry.isIntersecting) {
+            running = false;
+          }
+        },
+        { threshold: 0 }
+      ).observe(canvas);
+    }
 
-    resize();
-    requestAnimationFrame(frame);
+    /* Inicializa no próximo quadro: medir a geometria durante a execução do
+       script era o principal reflow forçado da página (~155 ms). */
+    requestAnimationFrame(() => {
+      resize();
+      requestAnimationFrame(frame);
+    });
   }
 
   /* ---------------------------------------------------------------- *
@@ -523,26 +558,47 @@
   /* ---------------------------------------------------------------- *
    * 8. Formulário de contato (abre o cliente de e-mail com a mensagem)
    * ---------------------------------------------------------------- */
-  // Troque pelo seu e-mail para receber as mensagens do formulário.
-  const CONTACT_EMAIL = "seu-email@exemplo.com";
+  /* TODO: coloque aqui o seu e-mail. Enquanto estiver vazio, o formulário
+     avisa que não está pronto em vez de fingir que enviou a mensagem. */
+  const CONTACT_EMAIL = "";
 
   const form = $("#messageForm");
   const note = $("#formNote");
   const defaultNote = note ? note.textContent : "";
 
   if (form && note) {
+    if (!CONTACT_EMAIL) {
+      // Estado neutro, não erro: avisa antes de a pessoa perder tempo digitando.
+      note.textContent =
+        "Formulário em configuração. Por enquanto, use GitHub ou LinkedIn acima.";
+    }
+
     form.addEventListener("submit", (e) => {
       e.preventDefault();
-      const nome = ($("#nome")?.value || "").trim();
-      const mensagem = ($("#mensagem")?.value || "").trim();
+      const nomeEl = $("#nome");
+      const msgEl = $("#mensagem");
+      const nome = (nomeEl?.value || "").trim();
+      const mensagem = (msgEl?.value || "").trim();
 
       note.classList.remove("is-ok", "is-error");
 
-      if (nome.length < 2 || mensagem.length < 10) {
+      /* Erro de validação: diz o que corrigir e leva o foco ao campo.
+         O que a pessoa digitado é sempre mantido. */
+      const invalido =
+        nome.length < 2 ? nomeEl : mensagem.length < 10 ? msgEl : null;
+      if (invalido) {
         note.textContent =
           mensagem.length < 10 && mensagem.length > 0
             ? "Conte um pouco mais, pelo menos 10 caracteres."
             : "Preencha seu nome e uma mensagem.";
+        note.classList.add("is-error");
+        invalido?.focus();
+        return;
+      }
+
+      if (!CONTACT_EMAIL) {
+        note.textContent =
+          "Ainda não há e-mail configurado. Me chame pelo GitHub ou LinkedIn acima.";
         note.classList.add("is-error");
         return;
       }
@@ -581,6 +637,15 @@
       const top = target.getBoundingClientRect().top + window.scrollY - 70;
       window.scrollTo({ top, behavior: reduced ? "auto" : "smooth" });
       history.replaceState(null, "", id);
+      /* O preventDefault acima cancela a navegação padrão, e com ela a
+         transferência de foco. Sem isto o link "Pular para o conteúdo"
+         rolava a página mas deixava o teclado parado no próprio link. */
+      if (target.hasAttribute("tabindex")) target.focus({ preventScroll: true });
     });
   });
+
+  /* Marca que o script assumiu a página. Sem esta classe, o script no <head>
+     devolve o site ao estado visível em 4s — JS desativado, arquivo não
+     carregado ou erro durante a execução. Deve ser a última linha do arquivo. */
+  document.documentElement.classList.add("js-ready");
 })();

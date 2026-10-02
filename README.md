@@ -17,7 +17,7 @@ Stack citada no conteúdo: Vue 3, Vuetify, TypeScript, Next.js, Node, PHP, Java 
 Só abrir o `index.html` no navegador. Ou subir um servidor local simples:
 
 ```
-cd site-animado
+cd my-portfolio-lv
 python3 -m http.server 8000
 ```
 
@@ -29,8 +29,21 @@ Depois acesse http://localhost:8000
 index.html
 styles.css
 script.js
+robots.txt
+sitemap.xml
 assets/avatar.jpg
+assets/project-placeholder.svg
 ```
+
+## Antes de publicar
+
+O formulário de contato depende de um e-mail. Enquanto `CONTACT_EMAIL` estiver
+vazio no fim do `script.js`, o formulário mostra um aviso em vez de enviar
+algo para lugar nenhum. Preencha esse valor (e só esse) para ativar.
+
+A URL canônica, Open Graph e sitemap estão apontados para
+`https://lucasventuraportfolio.vercel.app/`. Se o domínio mudar, atualize as
+meta tags do `<head>`, o `robots.txt` e o `sitemap.xml`.
 
 ## Contato
 
